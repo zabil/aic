@@ -1,37 +1,14 @@
 #!/usr/bin/env bun
 
 import OpenAI from "openai";
-import ora from "ora";
-
-async function withSpinner<T>(action: () => Promise<T>): Promise<T> {
-  const spinner = ora().start();
-  try {
-    const result = await action();
-    spinner.stop();
-    return result;
-  } catch (error) {
-    spinner.stop();
-    throw error;
-  }
-}
+import withSpinner from "./spinner";
+import readConfig from "./config";
+import getPrompt from "./prompt";
 
 async function main() {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    console.log(
-      "The OPENAI_API_KEY environment variable is not defined. Please set it and try again.",
-    );
-    process.exit(1);
-  }
-
+  const { apiKey } = await readConfig();
+  const content = getPrompt();
   const openai = new OpenAI({ apiKey });
-  if (process.argv.length <= 2) {
-    console.log("Please provide a prompt and try again.");
-    process.exit(1);
-  }
-
-  const content = process.argv.slice(2).join(" ");
-
   const stream = await withSpinner(() =>
     openai.chat.completions.create({
       model: "gpt-4",
