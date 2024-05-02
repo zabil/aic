@@ -1,5 +1,19 @@
+#!/usr/bin/env bun
+
 import OpenAI from "openai";
 import ora from "ora";
+
+async function withSpinner<T>(action: () => Promise<T>): Promise<T> {
+  const spinner = ora().start();
+  try {
+    const result = await action();
+    spinner.stop();
+    return result;
+  } catch (error) {
+    spinner.stop();
+    throw error;
+  }
+}
 
 async function main() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -18,18 +32,19 @@ async function main() {
 
   const content = process.argv.slice(2).join(" ");
 
-  const spinner = ora().start();
-  const stream = await openai.chat.completions.create({
-    model: "gpt-4",
-    messages: [
-      {
-        role: "user",
-        content,
-      },
-    ],
-    stream: true,
-  });
-  spinner.stop();
+  const stream = await withSpinner(() =>
+    openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [
+        {
+          role: "user",
+          content,
+        },
+      ],
+      stream: true,
+    }),
+  );
+
   for await (const part of stream) {
     process.stdout.write(part.choices[0]?.delta?.content || "");
   }
