@@ -8,9 +8,9 @@ import getPrompt from "./prompt";
 async function main() {
   const { apiKey } = await readConfig();
   const content = getPrompt();
-  const openai = new OpenAI({ apiKey });
+
   const stream = await withSpinner(() =>
-    openai.chat.completions.create({
+    new OpenAI({ apiKey }).chat.completions.create({
       model: "gpt-4",
       messages: [
         {
