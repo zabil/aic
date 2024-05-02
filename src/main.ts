@@ -6,26 +6,31 @@ import readConfig from "./config";
 import getPrompt from "./prompt";
 
 async function main() {
-  const { apiKey } = await readConfig();
-  const content = getPrompt();
+  try {
+    const { apiKey } = await readConfig();
+    const content = getPrompt();
 
-  const stream = await withSpinner(() =>
-    new OpenAI({ apiKey }).chat.completions.create({
-      model: "gpt-4",
-      messages: [
-        {
-          role: "user",
-          content,
-        },
-      ],
-      stream: true,
-    }),
-  );
+    const stream = await withSpinner(() =>
+      new OpenAI({ apiKey }).chat.completions.create({
+        model: "gpt-4",
+        messages: [
+          {
+            role: "user",
+            content,
+          },
+        ],
+        stream: true,
+      }),
+    );
 
-  for await (const part of stream) {
-    process.stdout.write(part.choices[0]?.delta?.content || "");
+    for await (const part of stream) {
+      process.stdout.write(part.choices[0]?.delta?.content || "");
+    }
+    process.stdout.write("\n");
+  } catch (error) {
+    console.log(error.message);
+    process.exit(1);
   }
-  process.stdout.write("\n");
 }
 
 main();
