@@ -7,12 +7,12 @@ import getPrompt from "./prompt";
 
 async function main() {
   try {
-    const { apiKey } = await readConfig();
+    const { apiKey, model } = await readConfig();
     const content = getPrompt();
 
     const stream = await withSpinner(() =>
       new OpenAI({ apiKey }).chat.completions.create({
-        model: "gpt-4",
+        model,
         messages: [
           {
             role: "user",

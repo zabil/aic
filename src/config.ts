@@ -12,5 +12,8 @@ export default async function readConfig() {
       "The OPENAI_API_KEY environment variable is not defined. Please set it and try again.",
     );
   }
-  return { apiKey };
+
+  const model = process.env.OPENAI_MODEL ?? "gpt-4";
+
+  return { apiKey, model };
 }
