@@ -3,20 +3,20 @@
 import OpenAI from "openai";
 import readConfig from "./config";
 import getPrompt from "./prompt";
+import { ChatCompletionMessageParam } from "openai/resources";
 
 async function main() {
   try {
-    const { apiKey, model } = await readConfig();
+    const { apiKey, model, system } = await readConfig();
     const content = getPrompt();
+    const messages = [
+      { role: "user", content },
+    ] as ChatCompletionMessageParam[];
+    system && messages.push({ role: "system", content: system });
 
     const stream = await new OpenAI({ apiKey }).chat.completions.create({
       model,
-      messages: [
-        {
-          role: "user",
-          content,
-        },
-      ],
+      messages,
       stream: true,
     });
 

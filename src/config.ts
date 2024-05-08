@@ -14,6 +14,7 @@ export default async function readConfig() {
   }
 
   const model = process.env.OPENAI_MODEL ?? "gpt-4";
+  const system = process.env.OPENAI_SYSTEM ?? undefined;
 
-  return { apiKey, model };
+  return { apiKey, model, system };
 }
