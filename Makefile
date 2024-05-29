@@ -6,3 +6,11 @@ build: install
 
 run:
 	bun run ./src/main.ts
+
+lint:
+	bun run lint
+
+format:
+	bun run format
+
+precommit: lint format
