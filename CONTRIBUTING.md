@@ -6,7 +6,8 @@ We welcome contributions of all kinds to this repository. By contributing, you a
 
 1. Discuss the changes you would like to make by opening an issue.
 2. **Fork and clone** the repository.
-3. **Submit a pull request** with a clear description of your changes.
+3. Make sure your commits are [signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) [signed](https://stackoverflow.com/questions/1962094/what-is-the-sign-off-feature-in-git-for) for [DCO](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin)
+4. **Submit a pull request** with a clear description of your changes.
 
 ## Code of Conduct
 
@@ -40,7 +41,7 @@ This Code of Conduct applies within all project spaces, and it also applies when
 
 ### Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [INSERT EMAIL ADDRESS]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the [project team](https://github.com/zabil). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
 
