@@ -51,7 +51,7 @@ This assumes you are in a git repository and you want to analyze the changes in 
 
 Use the clipboard to rephrase copied text for example (macos fish shell):
 ```bash
-OPENAI_SYSTEM="Rephrase, using simple concise english and active voice possible" aic (pbpaste)
+OPENAI_SYSTEM="Rephrase, using simple concise english and active voice" aic (pbpaste)
 ```
 
 You can create aliases for these commands in your favourite shell and an use them as shortcuts.
