@@ -35,7 +35,7 @@ This tool can be integrated with other command-line tools using pipes. Below are
 
 You can use the content of a file as the input prompt:
 ```bash
-$ aic what is the first paragraph for kafkas metamorphosis | fold -sw 80
+$ aic what is the first paragraph of kafkas metamorphosis | fold -sw 80
 ```
 
 #### Using output of a command as input
