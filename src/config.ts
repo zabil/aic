@@ -15,6 +15,15 @@ export default async function readConfig() {
 
   const model = process.env.OPENAI_MODEL ?? "gpt-4o";
   const system = process.env.OPENAI_SYSTEM ?? undefined;
+  const temperature = (() => {
+    const temp = Number.parseFloat(process.env.OPENAI_TEMPERATURE ?? "0.3");
+    if (Number.isNaN(temp) || temp < 0 || temp > 1) {
+      throw new ConfigError(
+        "The OPENAI_TEMPERATURE environment variable must be a number between 0 and 1.",
+      );
+    }
+    return temp;
+  })();
 
-  return { apiKey, model, system };
+  return { apiKey, model, system, temperature };
 }

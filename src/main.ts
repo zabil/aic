@@ -7,7 +7,7 @@ import type { ChatCompletionMessageParam } from "openai/resources";
 
 async function main() {
   try {
-    const { apiKey, model, system } = await readConfig();
+    const { apiKey, model, system, temperature } = await readConfig();
     const content = getPrompt();
     const messages = [
       { role: "user", content },
@@ -18,6 +18,7 @@ async function main() {
       model,
       messages,
       stream: true,
+      temperature,
     });
 
     for await (const part of stream) {
