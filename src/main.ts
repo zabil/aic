@@ -3,7 +3,7 @@
 import OpenAI from "openai";
 import readConfig from "./config";
 import getPrompt from "./prompt";
-import { ChatCompletionMessageParam } from "openai/resources";
+import type { ChatCompletionMessageParam } from "openai/resources";
 
 async function main() {
   try {
