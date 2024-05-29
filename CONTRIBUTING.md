@@ -6,7 +6,7 @@ We welcome contributions of all kinds to this repository. By contributing, you a
 
 1. Discuss the changes you would like to make by opening an issue.
 2. **Fork and clone** the repository.
-3. Make sure your commits are [signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) [signed](https://stackoverflow.com/questions/1962094/what-is-the-sign-off-feature-in-git-for) for [DCO](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin)
+3. Make sure your commits are [signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) AND [signed-off](https://stackoverflow.com/questions/1962094/what-is-the-sign-off-feature-in-git-for) for [DCO](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin)
 4. **Submit a pull request** with a clear description of your changes.
 
 ## Code of Conduct
