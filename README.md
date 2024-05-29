@@ -49,7 +49,7 @@ This assumes you are in a git repository and you want to analyze the changes in 
 
 #### Using the clipboard
 
-Use the clipboard to rephrase copied text for example (fish shell):
+Use the clipboard to rephrase copied text for example (macos fish shell):
 ```bash
 OPENAI_SYSTEM="Rephrase, using simple concise english and active voice possible" aic (pbpaste)
 ```
@@ -57,6 +57,15 @@ OPENAI_SYSTEM="Rephrase, using simple concise english and active voice possible"
 You can create aliases for these commands in your favourite shell and an use them as shortcuts.
 
 There are many other ways to use this tool. Feel free to experiment and share your recipes with the community.
+
+## Configuration
+
+The tool reads configuration settings from environment variables. The following environment variables are supported:
+
+- `OPENAI_API_KEY`: Your OpenAI API key. You can get this from the OpenAI platform.
+- `OPENAI_SYSTEM`: The system to use for the completion. This can be any of the systems available in the OpenAI platform.
+- `OPENAI_MODEL`: The model to use for the completion. This can be any of the models available in the OpenAI platform.
+- `OPENAI_TEMPERATURE`: The temperature to use for the completion (default is 0.5). This is a floating point number between 0 and
 
 ## For Developers
 
