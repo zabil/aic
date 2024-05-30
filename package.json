@@ -8,7 +8,9 @@
   "scripts": {
     "lint": "biome lint src",
     "format": "biome format src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "bun test test/**.test.ts",
+    "check": "biome ci src"
   },
   "keywords": [],
   "author": "",
