@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
 
 import OpenAI from "openai";
+import type { ChatCompletionMessageParam } from "openai/resources";
 import readConfig from "./config";
 import getPrompt from "./prompt";
-import type { ChatCompletionMessageParam } from "openai/resources";
 
 async function main() {
   try {
